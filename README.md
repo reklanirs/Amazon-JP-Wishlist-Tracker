@@ -32,7 +32,13 @@ When the discount meets the threshold, it will alert you via email using ifttt.
 
   1. if `Receive a web request` then `Send me an email`.  In **Event Name** of *Receive a web request*, you can use  `amazon_wish_list`.
 
-  2. In subject, fill in  `Some items from your Amazon wishlist have discounts over {{Value2}}!` or anything you like in email subject. `{{Value2}}` refers to your discount value.
+  2. In subject, fill in
+
+     ```
+     Some items from your Amazon wishlist have discounts over {{Value2}}!
+     ```
+
+     or anything you like in email subject. `{{Value2}}` refers to your discount value.
 
   3. In body, fill in
 
