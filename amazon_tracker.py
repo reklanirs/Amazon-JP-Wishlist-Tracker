@@ -6,6 +6,7 @@ import os,re,sys,time
 import subprocess,shlex
 import math,random
 import requests,json
+import configparser
 
 
 '''
@@ -15,10 +16,26 @@ Only tested on Amazon Japan
 
 #sys.stdin=open('in.txt','r')
 wish_list = ''
-items = []
-threshold = '30%' # How much discount you want
+threshold = '' # How much discount you want
 cookie = ''
 ifttt_webhook = '' # get it from https://ifttt.com/services/maker_webhooks/settings
+
+items = []
+
+
+def read_config():
+    global wish_list,threshold, cookie, ifttt_webhook
+    config = configparser.RawConfigParser()
+    config.read('config.ini')
+    for i in config['DEFAULT']:
+        print(i,config['DEFAULT'][i])
+    wish_list = config['DEFAULT']['wish_list']
+    threshold = config['DEFAULT']['threshold']
+    cookie = config['DEFAULT']['cookie']
+    ifttt_webhook = config['DEFAULT']['ifttt_webhook']
+    if len(cookie)<=10 or cookie[-3:]=='xxx':
+        cookie = ''
+    pass
 
 def mail(msg):
     payload = { 'value1' : msg.replace('\n','<br>'), 'value2': threshold}
@@ -67,6 +84,7 @@ def extract_title_price_discount(t):
 
 
 def main():
+    read_config()
 
     headers = {
         'authority': 'www.amazon.co.jp',
