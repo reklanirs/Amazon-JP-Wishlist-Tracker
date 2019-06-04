@@ -1,4 +1,4 @@
-# Amazon-JP-Wishlist-Tracker
+# Amazon JP Wishlist Price Drop Alerter
 
 ### Description
 
@@ -82,4 +82,3 @@ When the discount meets the threshold, it will alert you via email using ifttt.
   ```
 
   
-
