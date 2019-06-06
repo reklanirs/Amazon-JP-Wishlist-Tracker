@@ -75,8 +75,9 @@ When the discount meets the threshold, it will alert you via email using ifttt.
   cookie = x-wl-uid=1zSyAxxxxxxxxxxx
   # At Amazon JP wishlist page, log in, open chrome Developer Tools, refresh page, locate to the first link in Network tab, click it, in the right open 'Headers' page, copy the long long string behind 'cookie:'
   
-  ifttt_webhook =  https://maker.ifttt.com/use/xxxxxxx
-  # get the URL under account info from https://ifttt.com/services/maker_webhooks/settings
+  ifttt_webhook =  https://maker.ifttt.com/trigger/amazon_wish_list/with/key/<your_key>
+  # format: https://maker.ifttt.com/trigger/{event}/with/key/your_key
+  # get the <your_key> under account info from https://ifttt.com/services/maker_webhooks/settings. The string after https://maker.ifttt.com/use/
   ```
 
 - Set up crontab task on your linux machine or VPS:
